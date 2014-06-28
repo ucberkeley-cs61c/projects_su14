@@ -17,6 +17,9 @@ void init_lex(lexer *luthor) {
 void open_file(lexer *lex, char *filename) {
     if (lex) {
 	lex->file = fopen(filename, "r");
+	if (!lex->file) {
+	    fatal_error("Could not read input file.\n");
+	}
 	lex->buff_len = INIT_BUFFER_SIZE;
 	lex->buffer = safe_calloc(INIT_BUFFER_SIZE * sizeof(char));
     }
