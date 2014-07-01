@@ -14,7 +14,7 @@ typedef enum node_type {node_INT /* integer literal */,
 			node_LT, node_EQ, node_DIV, node_FUNCTION, 
 			node_STRUCT, node_ARROW, node_ASSIGN, node_IF, 
 			node_WHILE, node_FOR, node_SEQ, node_I_PRINT, 
-			node_S_PRINT, node_READ_INT, node_READ_CHAR} node_type;
+			node_S_PRINT, node_READ_INT} node_type;
 
 typedef struct AST AST;
 typedef struct AST_lst AST_lst;
