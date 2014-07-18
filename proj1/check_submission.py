@@ -79,7 +79,7 @@ code = 0
 
 #pull the assignment
 run("git init");
-code, out, err = run("git pull %s %s", git_path, subm);
+code, out, err = run("git pull %s tags/%s", git_path, subm);
 if code:
 	print "Could not find the tag [%s] in the repository [%s]" % (subm, git_path)
 	os.chdir(start_dir);
