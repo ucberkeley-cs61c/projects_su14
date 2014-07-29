@@ -11,7 +11,7 @@
 #include <sys/time.h>
 #include "benchmark.h"
 
-#define TOL (1e-5)
+#define TOL (5e-4)
 
 // NOTE : this constant varies per machine
 // this is for the hive machines (Intel Xeon E5620 @ 2.4GHz)
