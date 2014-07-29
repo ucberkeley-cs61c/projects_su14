@@ -124,13 +124,13 @@ int main( int argc, char **argv )
 
         /* Subtract the maximum allowed roundoff from each element of C */
         float diff = 0;
-        for (int i = 0; i < n; i += 1) {
+        for (int i = 0; i < n * n; i += 1) {
             diff += fabsf(v[i] - v2[i]);
         }
 
         /* Compare error to magnitude of solution. */
         float mag = 0;
-        for (size_t i = 0; i < n; i += 1) {
+        for (size_t i = 0; i < n * n; i += 1) {
             mag += v2[i] * v2[i];
         }
         mag = sqrt(mag);
