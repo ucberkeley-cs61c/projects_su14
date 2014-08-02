@@ -1,0 +1,26 @@
+     
+     MOV $a0 9
+     JAL @FIB
+     END
+
+     # COMPUTE THE A0th FIBONACCI NUMBER,
+     # ASSUMING A0 IS >= 0
+FIB: CMP $a0 1       # is A0 in a base case?
+     JMP ?GT @REC    # if not, then skip
+     MOV ?LE $rv $a0 # if A0 <= 1, return A0
+     JMP $ra
+REC: ADD $sp $sp -2  # allocate 2 slots on stack
+     MST $ra 0($sp)  # backup RA
+     MST $a0 1($sp)  # backup A0
+     ADD $a0 $a0 -1  # setup recursive call
+     JAL @FIB
+     MLD $a0 1($sp)  # restore A0 
+     MST $rv 1($sp)  # backup RV
+     ADD $a0 $a0 -2  # setup recursive call
+     JAL @FIB
+     MLD $t0 1($sp)  # get 1st RV
+     ADD $rv $rv $t0 # add together the 2 RVs
+     MLD $ra 0($sp)  # restore RA
+     ADD $sp $sp 2   # clean up the stack
+     JMP $ra         # return
+     
